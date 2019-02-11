@@ -1,4 +1,4 @@
-package com.bebound.template;
+package com.bebound.template.cryto;
 
 import org.apache.tomcat.util.codec.binary.Base64;
 

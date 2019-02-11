@@ -1,5 +1,6 @@
 package com.bebound.template;
 
+import com.bebound.template.cryto.CrytoUtils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -18,14 +19,6 @@ public class MainApplication {
     public static void main(String[] args) {
         SpringApplication.run(MainApplication.class, args);
         Logger.getAnonymousLogger().info("SERVER IS LAUNCHED");
-
-        try {
-            KeyGenerator keyGenerator = KeyGenerator.getInstance("DESede");
-            keyGenerator.init(168);
-            SecretKey secretKey = keyGenerator.generateKey();
-            Logger.getAnonymousLogger().info("secretKey = " + secretKey.toString());
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
+        CrytoUtils.init();
     }
 }

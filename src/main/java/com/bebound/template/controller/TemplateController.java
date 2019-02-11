@@ -1,6 +1,6 @@
 package com.bebound.template.controller;
 
-import com.bebound.template.AESCrypt;
+import com.bebound.template.cryto.AESCrypt;
 import com.bebound.template.model.Request;
 import com.bebound.template.response.Failure;
 import com.bebound.template.response.Response;
