@@ -27,7 +27,5 @@ public class MainApplication {
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-
-
     }
 }

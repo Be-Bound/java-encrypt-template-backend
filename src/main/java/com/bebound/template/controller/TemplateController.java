@@ -75,12 +75,6 @@ public class TemplateController {
     private Response performRequest(Request request) {
         Logger.getAnonymousLogger().info("Operation name: " + request.getOperationName());
 
-        if ("send_text".equals(request.getOperationName())) {
-            Logger.getAnonymousLogger().info("PERFORM REQUEST TO BE-BOUND SERVER - " + request.getOperationName());
-
-            return new Success.Builder().withParameter("length", request.getParameters().get("content").toString().length()).build();
-        }
-
         if ("send_encrypted".equals(request.getOperationName())) {
             Logger.getAnonymousLogger().info("PERFORM REQUEST TO BE-BOUND SERVER - " + request.getOperationName());
             String encryptedMsg = request.getParameters().get("text_encrypted").toString();
