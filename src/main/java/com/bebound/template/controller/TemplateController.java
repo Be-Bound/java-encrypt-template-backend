@@ -1,6 +1,7 @@
 package com.bebound.template.controller;
 
 import com.bebound.template.cryto.AESCrypt;
+import com.bebound.template.cryto.CrytoUtils;
 import com.bebound.template.model.Request;
 import com.bebound.template.response.Failure;
 import com.bebound.template.response.Response;
@@ -80,11 +81,7 @@ public class TemplateController {
             String encryptedMsg = request.getParameters().get("text_encrypted").toString();
             Logger.getAnonymousLogger().info("encryptedMsg - " + encryptedMsg);
 
-            String key = "Bar12345Bar12345"; // 128 bit key
-            String initVector = "RandomInitVector"; // 16 bytes IV
-
-            String messageAfterDecrypt = AESCrypt.decrypt(key, initVector, encryptedMsg);
-            return new Success.Builder().withParameter("text_decrypted", messageAfterDecrypt).build();
+            return new Success.Builder().withParameter("text_decrypted", CrytoUtils.decyptByDefault(encryptedMsg)).build();
             //return new Failure.Builder().withErrorStatus("Impossible to decrypt " + request.getOperationName()).build();
         }
         Logger.getAnonymousLogger().info("ERROR REQUEST");

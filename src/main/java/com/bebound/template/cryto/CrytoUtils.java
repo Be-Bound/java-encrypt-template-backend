@@ -1,21 +1,11 @@
 package com.bebound.template.cryto;
 
-import javax.crypto.KeyGenerator;
-import javax.crypto.SecretKey;
-import java.security.NoSuchAlgorithmException;
-import java.util.logging.Logger;
-
 public class CrytoUtils {
 
-    public static void init() {
-        try {
-            KeyGenerator keyGenerator = KeyGenerator.getInstance("DESede");
-            keyGenerator.init(168);
-            SecretKey secretKey = keyGenerator.generateKey();
-            Logger.getAnonymousLogger().info("secretKey = " + secretKey.toString());
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
+    public static String decyptByDefault(String encryptedMsg){
+        String key = "Bar12345Bar12345"; // 128 bit key
+        String initVector = "RandomInitVector"; // 16 bytes IV
+        return AESCrypt.decrypt(key, initVector, encryptedMsg);
     }
 
 }
